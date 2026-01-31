@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_DTJD_ART_03'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_DTJD_ART_03'
+  }
+}
+define service ZUI_DTJD_ART_03_O4 provider contracts odata_v4_ui {
+  expose ZC_DTJD_ART_03;
+}

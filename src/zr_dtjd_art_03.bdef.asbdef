@@ -1,0 +1,53 @@
+managed implementation in class ZBP_R_DTJD_ART_03 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_DTJD_ART_03 alias ZrDtjdArt03
+persistent table ZDT_JD_ART_03
+extensible
+draft table ZDTJD_ART_03_D
+etag master LastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   IdArt;
+
+  field ( readonly )
+   LocalCreateBy,
+   LocalCreateAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   IdArt;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDT_JD_ART_03 corresponding extensible
+  {
+    IdArt = id_art;
+    Descr = descr;
+    Descr2 = descr2;
+    Color = color;
+    Piezas = piezas;
+    Stock = stock;
+    Url = url;
+    LocalCreateBy = local_create_by;
+    LocalCreateAt = local_create_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+
+}
